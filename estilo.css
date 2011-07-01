@@ -1,0 +1,48 @@
+body {
+	background-color:black;
+}
+#legenda {
+	position:absolute;
+	clear: both;
+	top:650px;
+	width:99%;
+	height:130px;
+	background-image: url('base.png');
+	font-family: Verdana;
+}
+
+#legenda h1 {
+	padding: 0 0 0 0;
+	position: relative;
+	top: -20px;
+	font-size: 50px;
+	text-align: center;
+	color: yellow;
+	text-shadow: 0px 5px 9px #000000; 
+}
+
+#legenda p {
+	position: relative;
+	top: -45px;
+	left: 5px;
+	font-size: 30px;
+	font-weight: bolder;
+	color: white;
+}
+
+#logo {
+	position: absolute;
+	clear: both;
+	top: 10px;
+}
+
+#logo img {
+	width: 150px;
+	height: 150px;	
+}
+
+#logo p {
+	float:right;
+	color: white;
+	font-size: xx-large; 
+}
