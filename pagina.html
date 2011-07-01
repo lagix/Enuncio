@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Teste CSS3 e HTML5 com Videos</title>
+	<link rel="stylesheet" type="text/css" href="estilo.css"/>
+	<script language="javascript">
+		var titulos = new Array();
+		var descrs = new Array();
+		
+		var countItem = 0;		
+		var tempo = 0;
+		
+		function load()
+		{
+			titulos[0] = 'Igreja do Nazareno em Anchieta';
+			descrs[0] = 'Visite: www.nazarenoanchieta.com.br';
+			
+			titulos[1] = 'Programa&ccedil;&atilde;o';
+			descrs[1] = 'Domingo: 08:30 - Escola Dominical';
+			
+			titulos[2] = 'Programa&ccedil;&atilde;o';
+			descrs[2] = 'Domingo: 9:30 - Culto Devocional';
+			
+			titulos[3] = 'Programa&ccedil;&atilde;o';
+			descrs[3] = 'Domingo: 19:00 - Culto P&uacute;blico';
+			
+			titulos[4] = 'Programa&ccedil;&atilde;o';
+			descrs[4] = 'Segunda: Culto no lar (Procurar Irm&atilde; Iapuan)';
+			
+			titulos[5] = 'Programa&ccedil;&atilde;o';
+			descrs[5] = 'Segunda: 19:30 - Estudo B&iacute;blico';
+			
+			titulos[6] = 'Programa&ccedil;&atilde;o';
+			descrs[6] = 'Ter&ccedil;a: 08:00 - Ora&ccedil;&atilde;o e Jejum';
+			
+			titulos[7] = 'Programa&ccedil;&atilde;o';
+			descrs[7] = 'Ter&ccedil;a: 09:00 - Evangelismo';
+			
+			titulos[8] = 'Programa&ccedil;&atilde;o';
+			descrs[8] = 'Ter&ccedil;a: 19:30 - Estudo B&iacute;blico';
+			
+			titulos[9] = 'Programa&ccedil;&atilde;o';
+			descrs[9] = 'Quarta: 19:30 - Intercess&atilde;o da JNI';
+			
+			titulos[10] = 'Programa&ccedil;&atilde;o';
+			descrs[10] = 'Quarta: 19:30 - Culto da Mulheres (1a. Quarta do m&ecirc;s)';
+			
+			titulos[11] = 'Programa&ccedil;&atilde;o';
+			descrs[11] = 'Quinta: 19:30 - Culto de Liberta&ccedil;&atilde;o';
+			
+			titulos[12] = 'Programa&ccedil;&atilde;o';
+			descrs[12] = 'Sexta: Culto no Lar da JNI (&Uacute;ltima sexta do m&ecirc;s)';
+			
+			titulos[13] = 'Programa&ccedil;&atilde;o';
+			descrs[13] = 'Sexta: Ora&ccedil;&atilde;o (&Uacute;ltima sexta do m&ecirc;s)';
+			
+			titulos[14] = 'Programa&ccedil;&atilde;o';
+			descrs[14] = 'Sexta: 23:00 - Monte, P&ccedil;a do Col&eacute;gio Zen&oacute;bio (1a. sexta do m&ecirc;s)';
+			
+			titulos[15] = 'Programa&ccedil;&atilde;o';
+			descrs[15] = 'S&aacute;bado: 07:00 - Ora&ccedil;&atilde;o e Jejum';
+			
+			titulos[16] = 'Programa&ccedil;&atilde;o';
+			descrs[16] = 'S&aacute;bado: 08:00 - Evangelismo no Trem (Esta&ccedil;&atilde;o de Nil&oacute;polis)';
+			
+			titulos[17] = 'Programa&ccedil;&atilde;o';
+			descrs[17] = 'S&aacute;bado: 17:00 - Estudo B&iacute;blico';
+			
+			titulos[18] = 'Programa&ccedil;&atilde;o';
+			descrs[18] = 'S&aacute;bado: 19:30 - Culto da JNI (Segundo s&aacute;bado do m&ecirc;s)';
+			
+			titulos[19] = 'Ação Social';
+			descrs[19] = 'Dia 9 de Julho das 9 hrs às 13 hrs';
+			
+			titulos[20] = '1o. Retiro dos Homens - Barra do Piraí';
+			descrs[20] = 'De 26 à 28 de Agosto - R$ 150,00';
+			
+			titulos[21] = 'Acampamento Distrital dos Adolescentes';
+			descrs[21] = 'Itapuaçi - De 28 à 31 de Julho - R$ 160,00';
+			
+			titulos[22] = 'Encontro dos Jovens - Campos do Jordão';
+			descrs[22] = 'De 26 à 28 de Agosto - R$ 150,00';
+			
+			titulos[23] = 'Campanha do Quilo';
+			descrs[23] = 'Procurar Irmã Selma';
+			
+			titulos[24] = 'Almoço - Dia 3 de Julho';
+			descrs[24] = 'R$ 6,00 - Falar com Irmã Marizete';
+		}		
+		
+		function escrever(pTitulo,pDescr)
+		{
+			var titulo = document.getElementById('titulo');
+			var descr = document.getElementById('descr');
+					
+			titulo.innerHTML = pTitulo;
+			descr.innerHTML = pDescr;
+		}	
+	
+		function painel()
+		{
+				load();
+					
+				var video = document.getElementById('player');
+				
+				video.addEventListener('timeupdate',function(){
+		
+					isMultiple = Math.round(video.currentTime)%5;
+		
+		
+					if (isMultiple == 0 && tempo!=Math.round(video.currentTime)) 
+					{
+						if (countItem<=titulos.length-1)
+						{			
+							escrever(titulos[countItem],descrs[countItem]);
+							
+							countItem++;
+						}
+						else {
+							countItem = 0;
+						}
+					}
+					
+					tempo = Math.round(video.currentTime);
+				},true);
+		}
+	</script>
+</head>
+<body onload="painel();">
+	<div id="logo">
+		<img src="logo.png" alt="Igreja do Nazareno">
+		<p>Gostou?<br/>Fonte:GItHub.....</p>	
+	</div>
+	<center>
+	<video id="player" src="video.ogg" width="98%" height="98%" autoplay="autoplay">
+		Your browser does not support the video tag.
+	</video>
+	</center>
+	<div id="legenda">
+		<h1 id="titulo">Igreja do Nazareno em Ancheita</h1>
+		<p id="descr">Visite: www.nazarenoanchieta.com.br</p>
+	</div>
+</body>
+</html>
